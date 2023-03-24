@@ -1,0 +1,128 @@
+{
+  "products": [
+    {
+      "name": "product 1",
+      "id": 1,
+      "type": "PERFUME",
+      "title": "MAD ABOUT YOU SPLASH",
+      "bestOrNew": "Best Seller",
+      "discount": 10,
+      "price": 150,
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet tortor congue, rutrum sapien ut, consequat sapien. Morbi euismod, ipsum"
+    },
+    {
+      "name": "product 2",
+      "id": 2,
+      "type": "LIP GLOSS",
+      "title": "MAD ABOUT YOU SPLASH",
+      "bestOrNew": "Best Seller",
+      "price": 300,
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet tortor congue, rutrum sapien ut, consequat sapien. Morbi euismod, ipsum"
+    },
+    {
+      "name": "product 3",
+      "id": 3,
+      "type": "BATH BOMB",
+      "title": "MAD ABOUT YOU SPLASH",
+      "bestOrNew": "New",
+      "discount": 8,
+      "price": 150,
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet tortor congue, rutrum sapien ut, consequat sapien. Morbi euismod, ipsum"
+    },
+    {
+      "name": "product 4",
+      "id": 4,
+      "type": "ESSENTIAL OIL",
+      "title": "MAD ABOUT YOU SPLASH",
+      "bestOrNew": "New",
+      "discount": 10,
+      "price": 150,
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet tortor congue, rutrum sapien ut, consequat sapien. Morbi euismod, ipsum"
+    },
+    {
+      "name": "product 5",
+      "id": 5,
+      "type": "MAKHMARYA",
+      "title": "MAD ABOUT YOU SPLASH",
+      "bestOrNew": "Best Seller",
+      "discount": 20,
+      "price": 150,
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet tortor congue, rutrum sapien ut, consequat sapien. Morbi euismod, ipsum"
+    },
+    {
+      "name": "product 6",
+      "id": 6,
+      "type": "PERFUME",
+      "title": "MAD ABOUT YOU SPLASH",
+      "bestOrNew": "Best Seller",
+      "price": 150,
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet tortor congue, rutrum sapien ut, consequat sapien. Morbi euismod, ipsum"
+    },
+    {
+      "name": "product 7",
+      "id": 7,
+      "type": "PERFUME",
+      "title": "MAD ABOUT YOU SPLASH",
+      "bestOrNew": "Best Seller",
+      "discount": 10,
+      "price": 150,
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet tortor congue, rutrum sapien ut, consequat sapien. Morbi euismod, ipsum"
+    },
+    {
+      "name": "product 8",
+      "id": 8,
+      "type": "PERFUME",
+      "title": "MAD ABOUT YOU SPLASH",
+      "bestOrNew": "Best Seller",
+      "price": 150,
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet tortor congue, rutrum sapien ut, consequat sapien. Morbi euismod, ipsum"
+    }
+  ],
+  "orders": [
+    {
+      "data": {
+        "name": "mahmoud",
+        "adress": "mohrem bek",
+        "phone": "012491414129",
+        "email": "mahmoudawad9000@gmail.com",
+        "city": "alexandira",
+        "notes": "41412414141414",
+        "cart": [
+          {
+            "name": "product 2",
+            "id": 2,
+            "type": "LIP GLOSS",
+            "title": "MAD ABOUT YOU SPLASH",
+            "bestOrNew": "Best Seller",
+            "price": 300,
+            "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet tortor congue, rutrum sapien ut, consequat sapien. Morbi euismod, ipsum",
+            "itemCount": 2,
+            "itemType": "storeProduct"
+          },
+          {
+            "name": "sdgsdgds",
+            "bottleSize": 50,
+            "price": 500,
+            "itemCount": 3,
+            "itemType": "perfumeProduct"
+          }
+        ]
+      },
+      "id": 1
+    }
+  ],
+  "bottlesData": [
+    {
+      "size": 30,
+      "price": 300
+    },
+    {
+      "size": 50,
+      "price": 500
+    },
+    {
+      "size": 100,
+      "price": 1000
+    }
+  ]
+}
