@@ -1,13 +1,13 @@
 import { useState, useContext } from 'react';
 import { faker } from '@faker-js/faker';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import CartContext from '../context/CartContext';
 import QuantityAndPrice from '../components/QuantityAndPrice';
-
+import Modal from '../components/Modal';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom';
-
+import { RxCross1 } from 'react-icons/rx';
 function PerfumesPage() {
   const { data, error, isLoading } = useQuery({
     queryKey: ['fetchMainPro'],
@@ -47,9 +47,32 @@ function PerfumesPage() {
     setCurrentprice(0);
     setItemCount(1);
     setInputValue('');
+    setShowModal(!showModal);
   };
+  const [showModal, setShowModal] = useState(false);
+  const modal = (
+    <Modal>
+      <div className="flex justify-between">
+        <h2>Lotus Store</h2>
+        <RxCross1
+          className="cursor-pointer"
+          onClick={() => setShowModal(!showModal)}
+        />
+      </div>
+      <div>
+        Your Product Has been added to Cart Go to
+        <Link to={'/'} className="text-cyan-500 hover:scale-105">
+          home Page
+        </Link>
+        <Link to={'/cart'} className="text-cyan-500 hover:scale-105">
+          Cart
+        </Link>
+      </div>
+    </Modal>
+  );
   return (
     <div className="p-2 text-center">
+      {showModal && modal}
       <div className="h-[70vh] flex items-center justify-center p-2">
         <img
           src={faker.image.business()}

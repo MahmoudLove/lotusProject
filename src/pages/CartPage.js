@@ -22,7 +22,6 @@ function CartPage() {
   } else
     content = (
       <>
-        <Modal />
         <div>Your Cart is Empty you ignorent Mother Fucker</div>;
       </>
     );

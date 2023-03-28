@@ -58,6 +58,7 @@ function FormPage() {
         <div className="flex justify-between items-center px-2 py-6">
           <label>Names*</label>
           <input
+            pattern="A-Za-z"
             value={name}
             onChange={handleNameChange}
             type="text"

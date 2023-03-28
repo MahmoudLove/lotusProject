@@ -16,7 +16,10 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link className="uppercase text-2xl text-white inline-block p-2 font-bold border-b-4 border-b-transparent hover:border-b-red-400">
+            <Link
+              to={'/store'}
+              className="uppercase text-2xl text-white inline-block p-2 font-bold border-b-4 border-b-transparent hover:border-b-red-400"
+            >
               store
             </Link>
           </li>

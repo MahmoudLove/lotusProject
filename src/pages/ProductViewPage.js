@@ -7,6 +7,9 @@ import axios from 'axios';
 import QuantityAndPrice from '../components/QuantityAndPrice';
 import Button from '../components/Button';
 import CartContext from '../context/CartContext';
+import Modal from '../components/Modal';
+import { RxCross1 } from 'react-icons/rx';
+
 function ProductsViewPage() {
   //data fetching
   const { id } = useParams();
@@ -27,7 +30,28 @@ function ProductsViewPage() {
   };
   // using cart context
   const { addToCart } = useContext(CartContext);
+  const [showModal, setShowModal] = useState(false);
 
+  const modal = (
+    <Modal>
+      <div className="flex justify-between">
+        <h2>Lotus Store</h2>
+        <RxCross1
+          className="cursor-pointer"
+          onClick={() => setShowModal(!showModal)}
+        />
+      </div>
+      <div>
+        Your Product Has been added to Cart Go to
+        <Link to={'/'} className="text-cyan-500 hover:scale-105">
+          home Page
+        </Link>
+        <Link to={'/cart'} className="text-cyan-500 hover:scale-105">
+          Cart
+        </Link>
+      </div>
+    </Modal>
+  );
   //page content
   let content;
   if (error) content = <div>error</div>;
@@ -36,6 +60,7 @@ function ProductsViewPage() {
     const [productToShow] = data.data.filter((pro) => pro.id === idNumber);
     content = (
       <div className="p-2 text-center">
+        {showModal && modal}
         <div className="h-[70vh] flex items-center justify-center p-2">
           <img
             src={faker.image.business()}
@@ -60,7 +85,10 @@ function ProductsViewPage() {
         </Link>
         <Button
           cart
-          onClick={() => addToCart(productToShow, itemCount, 'storeProduct')}
+          onClick={() => {
+            addToCart(productToShow, itemCount, 'storeProduct');
+            setShowModal(!showModal);
+          }}
         >
           Add Product to Cart
         </Button>

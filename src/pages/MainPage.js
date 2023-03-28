@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import ProductsType from '../components/ProductsType';
 import ProductItem from '../components/ProductsItem';
+import Slider from '../components/Slider';
 function MainPage() {
   const { data, error, isLoading } = useQuery({
     queryKey: ['fetchMainPro'],
@@ -28,6 +29,7 @@ function MainPage() {
   return (
     <main className="p-3">
       <ProductsType products={productsTypes} />
+      <Slider />
       {content}
     </main>
   );
