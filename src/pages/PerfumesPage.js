@@ -13,13 +13,14 @@ function PerfumesPage() {
     queryKey: ['fetchMainPro'],
     queryFn: () => axios.get('http://localhost:3005/bottlesData'),
   });
-  let bottlesData;
   const [currentSize, setCurrentSize] = useState();
   const [currentPrice, setCurrentprice] = useState(0);
-  if (!isLoading && !error) {
-    bottlesData = data.data;
-  }
+  const { addToCart } = useContext(CartContext);
+  const [showModal, setShowModal] = useState(false);
+
   const [itemCount, setItemCount] = useState(1);
+  const [inputValue, setInputValue] = useState('');
+  if (isLoading || error) return;
   const increaseCount = () => {
     if (itemCount >= 15) return;
     setItemCount(itemCount + 1);
@@ -29,14 +30,13 @@ function PerfumesPage() {
     setItemCount(itemCount - 1);
   };
 
-  const { addToCart } = useContext(CartContext);
-
-  const [inputValue, setInputValue] = useState('');
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log('submit');
+    console.log(currentSize + inputValue);
     if (!currentSize || !inputValue) return;
     addToCart(
       { name: inputValue, bottleSize: currentSize, price: currentPrice },
@@ -49,15 +49,12 @@ function PerfumesPage() {
     setInputValue('');
     setShowModal(!showModal);
   };
-  const [showModal, setShowModal] = useState(false);
+  const closeModal = () => setShowModal(!showModal);
   const modal = (
     <Modal>
       <div className="flex justify-between">
         <h2>Lotus Store</h2>
-        <RxCross1
-          className="cursor-pointer"
-          onClick={() => setShowModal(!showModal)}
-        />
+        <RxCross1 className="cursor-pointer" onClick={closeModal} />
       </div>
       <div>
         Your Product Has been added to Cart Go to
@@ -84,7 +81,7 @@ function PerfumesPage() {
         onSubmit={handleSubmit}
         className="border-b-[2px] border-black flex gap-2 pb-4 uppercase"
       >
-        <label className="text-xl">fragnace type</label>
+        <label className="text-sm">fragnace type</label>
         <input
           value={inputValue}
           onChange={handleChange}
@@ -93,14 +90,14 @@ function PerfumesPage() {
         />
       </form>
       <div className="flex justify-center gap-5  my-7">
-        {bottlesData?.map((bottle) => {
+        {data.data.map((bottle) => {
           return (
             <p
               onClick={() => {
                 setCurrentSize(bottle.size);
                 setCurrentprice(bottle.price);
               }}
-              className={`perfume-para py-4 px-2 border-[2px] border-zinc-500 font-bold text-zinc-500 text-2xl ${
+              className={`w-15 py-4 px-2  border-[2px] border-zinc-500 font-bold text-zinc-500 text-2xl ${
                 bottle.size === currentSize &&
                 'text-black border-black border-[3px]'
               }`}

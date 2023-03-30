@@ -10,13 +10,13 @@ function SummaryItem({ item }) {
         />
       </div>
       <div className="flex flex-col justify-around">
-        <h1 className="font-bold text-black text-xl">
+        <h1 className="font-bold text-black text-sm">
           {item.title || item.name}
         </h1>
         <h2 className="font-bold text-red-400">
           {item.type || item.bottleSize}
         </h2>
-        <span className="text-2xl">
+        <span className="text-sm">
           {item.itemCount} X {item.price},00 EGP
         </span>
       </div>

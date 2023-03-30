@@ -1,8 +1,12 @@
 import classNames from 'classnames';
-function Button({ children, cart, product, className, ...rest }) {
+function Button({ children, cart, product, remove, className, ...rest }) {
   const classes = classNames(
-    'px-14 py-6 mb-4 cursor-pointer inline-block text-3xl',
-    { 'bg-black text-white': product, 'bg-cyan-500 text-black': cart },
+    'px-7 py-3 mb-4 cursor-pointer inline-block ',
+    {
+      'bg-black text-white text-xl': product,
+      'bg-cyan-500 text-black text-xl': cart,
+      'bg-red-500 text-white text-xs px-[2px] py-[2px]': remove,
+    },
     className
   );
   return (

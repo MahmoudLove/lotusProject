@@ -12,8 +12,10 @@ import { RxCross1 } from 'react-icons/rx';
 
 function ProductsViewPage() {
   //data fetching
+
+  // const idNumber = parseInt(id.charAt(id.length - 1));
   const { id } = useParams();
-  const idNumber = parseInt(id.charAt(id.length - 1));
+
   const { data, error, isLoading } = useQuery({
     queryKey: ['fetchMainPro'],
     queryFn: () => axios.get('http://localhost:3005/products'),
@@ -57,7 +59,10 @@ function ProductsViewPage() {
   if (error) content = <div>error</div>;
   else if (isLoading) content = <div>loading</div>;
   else {
-    const [productToShow] = data.data.filter((pro) => pro.id === idNumber);
+    const [productToShow] = data.data.filter((pro) => pro.id == id);
+    console.log(productToShow);
+    console.log(id);
+    console.log(data.data);
     content = (
       <div className="p-2 text-center">
         {showModal && modal}
@@ -70,7 +75,7 @@ function ProductsViewPage() {
         </div>
         <h1>{productToShow.title}</h1>
         <h2>{productToShow.type}</h2>
-        <h3 className="pb-1 border-b-[3px] border-black mb-2 uppercase text-start">
+        <h3 className="pb-1 border-b-[1px] border-black mb-1 uppercase text-start">
           DETAILS
         </h3>
         <p className="text-start">{productToShow.details}</p>

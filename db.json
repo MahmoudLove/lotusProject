@@ -124,5 +124,13 @@
       "size": 100,
       "price": 1000
     }
+  ],
+  "checkBox": [
+    "Best Seller",
+    "Perfumes",
+    "Body Splash",
+    "Sun Screen",
+    "Lip Gloss",
+    "Candle"
   ]
 }
